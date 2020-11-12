@@ -12,11 +12,11 @@ class PieDataExtract : DataExtract {
         return PieChartData();
     }
     
-    override func createDataSet(_ entries: [ChartDataEntry]?, label: String?) -> IChartDataSet {
-        return PieChartDataSet(entries: entries, label: label)
+    override func createDataSet(_ entries: [ChartDataEntry]?, label: String?) -> ChartDataSet {
+        return PieChartDataSet(values: entries!, label: label!)
     }
     
-    override func dataSetConfig(_ dataSet: IChartDataSet, config: JSON) {
+    override func dataSetConfig(_ dataSet: ChartDataSet, config: JSON) {
         let pieDataSet = dataSet as! PieChartDataSet;
         
         ChartDataSetConfigUtils.commonConfig(pieDataSet, config: config);

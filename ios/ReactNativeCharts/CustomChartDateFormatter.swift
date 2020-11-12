@@ -8,7 +8,7 @@
 import Foundation
 import Charts
 
-open class CustomChartDateFormatter: NSObject, IValueFormatter, IAxisValueFormatter {
+open class CustomChartDateFormatter: NSObject, ValueFormatter, AxisValueFormatter {
     
     open var dateFormatter = DateFormatter();
     
@@ -20,8 +20,7 @@ open class CustomChartDateFormatter: NSObject, IValueFormatter, IAxisValueFormat
         
     }
     
-    public init(pattern: String?, since: Double, timeUnit: String?, locale: String?) {
-        self.dateFormatter.locale = Locale(identifier: locale ?? Locale.current.languageCode ?? "en_US");
+    public init(pattern: String?, since: Double, timeUnit: String?) {
         self.dateFormatter.dateFormat = pattern;
         self.since = since
         self.timeUnit = timeUnit

@@ -31,11 +31,11 @@ class BarDataExtract : DataExtract {
        
     }
     
-    override open func createDataSet(_ entries: [ChartDataEntry]?, label: String?) -> IChartDataSet {
-        return BarChartDataSet(entries: entries, label: label)
+    override open func createDataSet(_ entries: [ChartDataEntry]?, label: String?) -> ChartDataSet {
+        return BarChartDataSet(values: entries!, label: label!)
     }
     
-    override open func dataSetConfig(_ dataSet: IChartDataSet, config: JSON) {
+    override open func dataSetConfig(_ dataSet: ChartDataSet, config: JSON) {
         let barDataSet = dataSet as! BarChartDataSet
         
         ChartDataSetConfigUtils.commonConfig(barDataSet, config: config);
